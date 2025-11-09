@@ -11,7 +11,7 @@ const configureClient = async () => {
     domain: config.domain,
     clientId: config.clientId,
     authorizationParams: {
-      redirect_uri: "https://kingsiddhu.github.io/HASS/"
+      redirect_uri: "http://127.0.0.1"
     }
   });
 };
