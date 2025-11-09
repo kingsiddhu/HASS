@@ -320,7 +320,8 @@
                 let vv = '\"['+queries.toString()+ ']\"';
                 
                 // Fetch new videos
-                const response = await fetch('http://155.138.225.71:8000/api/search?query='+ vv +`&count=${count}`);
+                let response = {};
+                await fetch('http://155.138.225.71:8000/api/search?query='+ vv +`&count=${count}`).then(res => res.json()).then(dta => response=dta);
                 const data = await response.json();
                 
                 if (!data.results || !Array.isArray(data.results)) {
