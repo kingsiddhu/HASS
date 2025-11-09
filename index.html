@@ -318,16 +318,8 @@
             }
             // Example API call
             try {
-                const response = await fetch('http://155.138.225.71:8000/api/search', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        query: queries.toString(),
-                        count: coun
-                    })
-                });
+                let vv = '\"['+queries.toString()+ ']\"';
+                const response = await fetch('http://155.138.225.71:8000/api/search?query='+ vv +`&count=${coun}`);
                 const response_data = await response.json();
                 arr.join(response_data);
                 arr.forEach(data => {
@@ -737,4 +729,3 @@
 
 </body>
 </html>
-
