@@ -297,7 +297,7 @@
         let scrollTimer = null;
 
         // fetch the JSON database and initialize
-        fetch('./testdata/shorts_db.json')
+        /*fetch('./testdata/shorts_db.json')
             .then(r => r.json())
             .then(json => {
                 allData = json;
@@ -309,7 +309,8 @@
             .catch(err => {
                 console.error('Failed to load shorts_db.json', err);
                 // fallback: keep existing small dataset if any (no-op)
-            });
+            });*/
+        searchAPI([],6);
         async function searchAPI(queries, coun) {
             let arr = [];
             while (arr.length<currentVideoIndex){
@@ -332,7 +333,8 @@
                 arr.forEach(data => {
                     createShortItem(data)
                 });
-                allData = arr
+                allData = arr;
+                render();
             } catch (err) {
                 console.error('Search API error:', err);
                 return [];
